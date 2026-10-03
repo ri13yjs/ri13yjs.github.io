@@ -56,10 +56,16 @@
   .label .meta { font-style: italic; font-family: var(--serif); color: var(--muted); margin: 0 0 .9rem; font-size: .95rem; }
   .label p { margin: 0 0 .75rem; max-width: 38rem; }
   .label p:last-child { margin-bottom: 0; }
-  .photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.25rem; margin: 0 0 1.75rem; }
-  .photos figure { margin: 0; }
-  .photos img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: #cfd5dd; }
-  .photos figcaption { font: italic .9rem var(--serif); color: var(--muted); margin-top: .5rem; }
+  .about-top { display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+  .portrait { margin: 0; flex: 0 0 12rem; }
+  .portrait img { display: block; width: 12rem; height: 12rem; border-radius: 50%; object-fit: cover; background: #cfd5dd; }
+  .wide { margin: 0; }
+  .wide img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #cfd5dd; }
+  .wide figcaption { font: italic .9rem var(--serif); color: var(--muted); margin-top: .5rem; }
+  @media (max-width: 600px) {
+    .about-top { flex-direction: column; text-align: left; }
+    .portrait { flex: none; }
+  }
   .bio p { max-width: 38rem; margin: 0 0 1rem; }
   .js .reveal {
     opacity: 0;
@@ -89,20 +95,19 @@
 
   <section id="about" class="reveal">
     <h2>About</h2>
-    <div class="photos">
-      <figure>
-        <img src="photo1.JPG" alt="Describe the first photo" loading="lazy">
-        <figcaption>Short caption</figcaption>
+    <div class="about-top">
+      <figure class="portrait">
+        <img src="photo1.jpg" alt="Describe the first photo" loading="lazy">
       </figure>
-      <figure>
-        <img src="photo2.HEIC" alt="Describe the second photo" loading="lazy">
-        <figcaption>Short caption</figcaption>
-      </figure>
+      <div class="bio">
+        <p>I'm a senior at NYU double majoring in Art History and Computer Science. Add a sentence on what drew you to each field and how they fit together for you.</p>
+        <p>Add a sentence or two on what you've worked on, what you care about, or what you want to do next.</p>
+      </div>
     </div>
-    <div class="bio">
-      <p>I'm a senior at NYU double majoring in Art History and Computer Science. Add a sentence on what drew you to each field and how they fit together for you.</p>
-      <p>Add a sentence or two on what you've worked on, what you care about, or what you want to do next.</p>
-    </div>
+    <figure class="wide">
+      <img src="photo2.HEIC" alt="Describe the second photo" loading="lazy">
+      <figcaption>Short caption</figcaption>
+    </figure>
   </section>
 
   <section id="writing" class="reveal">

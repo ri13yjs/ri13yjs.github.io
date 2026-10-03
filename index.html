@@ -56,8 +56,18 @@
   .label .meta { font-style: italic; font-family: var(--serif); color: var(--muted); margin: 0 0 .9rem; font-size: .95rem; }
   .label p { margin: 0 0 .75rem; max-width: 38rem; }
   .label p:last-child { margin-bottom: 0; }
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .js .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+  }
   footer { max-width: 46rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; color: var(--muted); font-size: .9rem; }
 </style>
+<script>document.documentElement.className = "js";</script>
 </head>
 <body>
 <main>
@@ -71,7 +81,7 @@
     </nav>
   </header>
 
-  <section id="writing">
+  <section id="writing" class="reveal">
     <h2>Writing</h2>
     <article class="label">
       <h3>MOTIVE, MEANS, AND OPPORTUNITY: Comparing Exhibition Design at The Met and The Brooklyn Museum</h3>
@@ -81,7 +91,7 @@
     </article>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="reveal">
     <h2>Projects</h2>
     <article class="label">
       <h3>Project name</h3>
@@ -97,11 +107,24 @@
     </article>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="reveal">
     <h2>Contact</h2>
     <p>The best way to reach me is <a href="mailto:rjs9405@nyu.edu">rjs9405@nyu.edu</a>. You can also find me on <a href="https://www.linkedin.com/in/riley-schmidt-4885742a2">LinkedIn</a> and <a href="https://github.com/ri13yjs">GitHub</a>, or <a href="resume.pdf">download my résumé</a>.</p>
   </section>
 </main>
 <footer>&copy; 2026 Riley Schmidt</footer>
+<script>
+  var items = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add("visible"); });
+  }
+</script>
 </body>
 </html>

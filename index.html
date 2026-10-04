@@ -44,6 +44,27 @@
     align-items: center;
     text-align: center;
   }
+  .museum-frame{
+    width: 100%;
+    max-width: 40rem;
+    padding: clamp(14px, 3vw, 25px);
+    background: #1a1a1a;
+    border: 15px solid #b8860b;
+    box-shadow:
+      0 0 0 4px #4a3500,
+      inset 0 0 15px rgba(0,0,0,0.8),
+      0 10px 25px rgba(0,0,0,0.5);
+    margin: 50px auto;
+    box-sizing:border-box
+  }
+  .frame-inside{
+    background: #ffffff;
+    border: 2px solid #222;
+    padding: clamp(1.75rem, 6vw, 3.5rem) clamp(1.25rem, 5vw, 3rem);
+  }
+  .frame h1{ margin-bottom: 1rem;}
+  @media (max-width: 600px) {.frame {border-width: 10px;}}
+
   .intro { font: 400 1.2rem/1.6 var(--serif); max-width: 36rem; margin: 0 auto 1.5rem; }
   nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.5rem; }
   .label {
@@ -58,7 +79,7 @@
   .label p:last-child { margin-bottom: 0; }
   .about-top { display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; }
   .portrait { margin: 0; flex: 0 0 12rem; }
-  .portrait img { display: block; width: 15rem; height: 15rem; border-radius: 50%; object-fit: cover; object-position: -30% 24%; background: #cfd5dd; }
+  .portrait img { display: block; width: 15rem; height: 15rem; border-radius: 50%; object-fit: cover; object-position: -50% 24%; background: #cfd5dd; }
   .wide { margin: 0; }
   .wide img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #cfd5dd; }
   .wide figcaption { font: italic .9rem var(--serif); color: var(--muted); margin-top: .5rem; }
@@ -83,6 +104,7 @@
 <body>
 <main>
   <header>
+    div class <frame>
     <h1>Riley Schmidt</h1>
     <p class="intro">I study art history and computer science at NYU, and I'm interested in how we look at, describe, and preserve images. I graduate in May 2027 and I'm looking for an internship or full-time role.</p>
     <nav aria-label="Primary">
@@ -91,13 +113,14 @@
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
+    </div>
   </header>
 
   <section id="about" class="reveal">
-    <h2>About</h2>
+    <h2>About Me!</h2>
     <div class="about-top">
       <figure class="portrait">
-        <img src="photo1.JPG" alt="Describe the first photo" loading="lazy">
+        <img src="photo1.JPG" alt="Photo 1, at Rubell" loading="lazy">
       </figure>
       <div class="bio">
         <p>I'm a senior at NYU double majoring in Art History and Computer Science. While some may think the combination to be unconventional, I am drawn to the intersection of art, technology and information. I'm particularly interested in how digital tools and computational approaches can make art and curitorial collections more accessible, organized, and engaging.</p>
@@ -105,7 +128,7 @@
       </div>
     </div>
     <figure class="wide">
-      <img src="photo2.jpg" alt="Describe the second photo" loading="lazy">
+      <img src="photo2.jpg" alt="Photo 2" loading="lazy">
       <figcaption>As a part of my summer working at the Rubell Museum, I gave free tours of the collection to visitors.</figcaption>
     </figure>
   </section>

@@ -44,29 +44,57 @@
     align-items: center;
     text-align: center;
   }
-  .museum-frame {
-    width: 100%;
-    max-width: 40rem;
-    padding: clamp(5px, 3vw, 10px);
-    background: #1a1a1a;
-    border: 15px solid #b8860b;
-    box-shadow:
-      0 0 0 4px #4a3500,
-      inset 0 0 15px rgba(0,0,0,0.8),
-      0 10px 25px rgba(0,0,0,0.5);
-    margin: 50px auto;
-    box-sizing: border-box;
+  header { padding: 3rem 0; }
+  .gallery {
+    width: min(52rem, 94vw);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 2rem;
+    margin-top: 1rem;
   }
-  .frame-inside {
-    background: #ffffff;
-    border: 2px solid #222;
-    padding: clamp(1.75rem, 6vw, 3.5rem) clamp(1.25rem, 5vw, 3rem);
+  .painting { display: block; color: inherit; text-decoration: none; }
+  .painting:focus-visible { outline: 3px solid var(--accent); outline-offset: 6px; }
+  .art { position: relative; aspect-ratio: 900 / 636; transition: transform .3s ease; }
+  .painting:hover .art, .painting:focus-visible .art { transform: translateY(-4px); }
+  /* the "painting": swap the gradient for background-image: url(your-art.jpg); background-size: cover; */
+  .canvas {
+    position: absolute;
+    left: 12.6%; top: 16.7%; width: 74.8%; height: 65.8%;
+    display: grid;
+    place-items: center;
   }
-  .museum-frame h1 { margin-bottom: 1rem; }
-  @media (max-width: 600px) { .museum-frame { border-width: 10px; } }
+  .canvas .title {
+    font: 400 clamp(1.4rem, 4vw, 2rem)/1.1 var(--serif);
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .45);
+  }
+  .c1 { background: linear-gradient(135deg, #d9c7a3, #8aa0a8); }
+  .c2 { background: linear-gradient(135deg, #c9d3df, #3b4b7a); }
+  .c3 { background: linear-gradient(135deg, #e6d2c0, #a55a4a); }
+  .c4 { background: linear-gradient(135deg, #cfd9c6, #5f7a63); }
+  .frame-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    filter: drop-shadow(0 10px 10px rgba(27, 35, 48, .35));
+  }
+  .plaque {
+    display: block;
+    width: fit-content;
+    margin: 1.1rem auto 0;
+    padding: .35rem .9rem;
+    background: var(--label);
+    border-left: 3px solid var(--accent);
+    font: italic .9rem var(--serif);
+    color: var(--muted);
+  }
+  @media (min-width: 1100px) {
+    .gallery { width: min(80rem, 94vw); grid-template-columns: repeat(4, 1fr); gap: 2rem 1.5rem; }
+  }
+  @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .art { transition: none; } }
 
   .intro { font: 400 1.2rem/1.6 var(--serif); max-width: 36rem; margin: 0 auto 1.5rem; }
-  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.5rem; }
+  .intro.lead { margin: 0 0 2rem; }
   .label {
     background: var(--label);
     padding: 1.5rem 1.75rem;
@@ -104,22 +132,30 @@
 <body>
 <main>
   <header>
-    <div class="museum-frame">
-      <div class="frame-inside">
-        <h1>Riley Schmidt</h1>
-        <p class="intro">I study art history and computer science at NYU, and I'm interested in how we look at, describe, and preserve images. I graduate in May 2027 and I'm looking for an internship or full-time role.</p>
-        <nav aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#writing">Writing</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </div>
+    <h1>Riley Schmidt</h1>
+    <nav class="gallery" aria-label="Primary">
+      <a class="painting" href="#about">
+        <div class="art"><div class="canvas c1"><span class="title">About</span></div><img class="frame-img" src="frame.png" alt=""></div>
+        <span class="plaque">Photos and bio</span>
+      </a>
+      <a class="painting" href="#writing">
+        <div class="art"><div class="canvas c2"><span class="title">Writing</span></div><img class="frame-img" src="frame.png" alt=""></div>
+        <span class="plaque">Published paper</span>
+      </a>
+      <a class="painting" href="#projects">
+        <div class="art"><div class="canvas c3"><span class="title">Projects</span></div><img class="frame-img" src="frame.png" alt=""></div>
+        <span class="plaque">Selected work</span>
+      </a>
+      <a class="painting" href="#contact">
+        <div class="art"><div class="canvas c4"><span class="title">Contact</span></div><img class="frame-img" src="frame.png" alt=""></div>
+        <span class="plaque">Email, LinkedIn, résumé</span>
+      </a>
+    </nav>
   </header>
 
   <section id="about" class="reveal">
     <h2>About Me!</h2>
+    <p class="intro lead">I study art history and computer science at NYU, and I'm interested in how we look at, describe, and preserve images. I graduate in May 2027 and I'm looking for an internship or full-time role.</p>
     <div class="about-top">
       <figure class="portrait">
         <img src="photo1.JPG" alt="Photo 1, at Rubell" loading="lazy">

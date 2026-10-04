@@ -34,10 +34,26 @@
     margin: 0 0 1.25rem;
     letter-spacing: -0.01em;
   }
+  .site-name {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin: 0;
+    padding: 1.25rem 0 .75rem;
+    text-align: center;
+    background: var(--wall);
+    transition: font-size .3s ease, padding .3s ease, box-shadow .3s ease;
+  }
+  .site-name.scrolled {
+    font-size: 1.6rem;
+    padding: .6rem 0;
+    box-shadow: 0 1px 0 rgba(27, 35, 48, .15);
+  }
+  section { scroll-margin-top: 4rem; }
   h2 { font: 400 1.5rem/1.3 var(--serif); margin: 4rem 0 1.25rem; }
   header {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: calc(100vh - 8rem);
+    min-height: calc(100svh - 8rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,7 +72,6 @@
   .painting:focus-visible { outline: 3px solid var(--accent); outline-offset: 6px; }
   .art { position: relative; aspect-ratio: 900 / 636; transition: transform .3s ease; }
   .painting:hover .art, .painting:focus-visible .art { transform: translateY(-4px); }
-  /* the "painting": swap the gradient for background-image: url(your-art.jpg); background-size: cover; */
   .canvas {
     position: absolute;
     left: 12.6%; top: 16.7%; width: 74.8%; height: 65.8%;
@@ -130,9 +145,9 @@
 <script>document.documentElement.className = "js";</script>
 </head>
 <body>
+<h1 class="site-name">Riley Schmidt</h1>
 <main>
   <header>
-    <h1>Riley Schmidt</h1>
     <nav class="gallery" aria-label="Primary">
       <a class="painting" href="#about">
         <div class="art"><div class="canvas c1"></div><img class="frame-img" src="frame.png" alt=""></div>
@@ -215,6 +230,11 @@
   } else {
     items.forEach(function (el) { el.classList.add("visible"); });
   }
+
+  var nameEl = document.querySelector(".site-name");
+  function onScroll() { nameEl.classList.toggle("scrolled", window.scrollY > 60); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 </script>
 </body>
 </html>

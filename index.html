@@ -44,7 +44,7 @@
     align-items: center;
     text-align: center;
   }
-  .museum-frame{
+  .museum-frame {
     width: 100%;
     max-width: 40rem;
     padding: clamp(14px, 3vw, 25px);
@@ -55,15 +55,15 @@
       inset 0 0 15px rgba(0,0,0,0.8),
       0 10px 25px rgba(0,0,0,0.5);
     margin: 50px auto;
-    box-sizing:border-box
+    box-sizing: border-box;
   }
-  .frame-inside{
+  .frame-inside {
     background: #ffffff;
     border: 2px solid #222;
     padding: clamp(1.75rem, 6vw, 3.5rem) clamp(1.25rem, 5vw, 3rem);
   }
-  .frame h1{ margin-bottom: 1rem;}
-  @media (max-width: 600px) {.frame {border-width: 10px;}}
+  .museum-frame h1 { margin-bottom: 1rem; }
+  @media (max-width: 600px) { .museum-frame { border-width: 10px; } }
 
   .intro { font: 400 1.2rem/1.6 var(--serif); max-width: 36rem; margin: 0 auto 1.5rem; }
   nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.5rem; }
@@ -78,7 +78,7 @@
   .label p { margin: 0 0 .75rem; max-width: 38rem; }
   .label p:last-child { margin-bottom: 0; }
   .about-top { display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; }
-  .portrait { margin: 0; flex: 0 0 12rem; }
+  .portrait { margin: 0; flex: 0 0 15rem; }
   .portrait img { display: block; width: 15rem; height: 15rem; border-radius: 50%; object-fit: cover; object-position: -50% 24%; background: #cfd5dd; }
   .wide { margin: 0; }
   .wide img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #cfd5dd; }
@@ -104,15 +104,17 @@
 <body>
 <main>
   <header>
-    <div> <frame>
-    <h1>Riley Schmidt</h1>
-    <p class="intro">I study art history and computer science at NYU, and I'm interested in how we look at, describe, and preserve images. I graduate in May 2027 and I'm looking for an internship or full-time role.</p>
-    <nav aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#writing">Writing</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="museum-frame">
+      <div class="frame-inside">
+        <h1>Riley Schmidt</h1>
+        <p class="intro">I study art history and computer science at NYU, and I'm interested in how we look at, describe, and preserve images. I graduate in May 2027 and I'm looking for an internship or full-time role.</p>
+        <nav aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#writing">Writing</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -123,8 +125,8 @@
         <img src="photo1.JPG" alt="Photo 1, at Rubell" loading="lazy">
       </figure>
       <div class="bio">
-        <p>I'm a senior at NYU double majoring in Art History and Computer Science. While some may think the combination to be unconventional, I am drawn to the intersection of art, technology and information. I'm particularly interested in how digital tools and computational approaches can make art and curitorial collections more accessible, organized, and engaging.</p>
-        <p>Through my studies and my work, I have explored this intersection through museum research and publishing, collections and donor data management, and programming projects focused on problem-solving anf information gathering.</p>
+        <p>I'm a senior at NYU double majoring in Art History and Computer Science. While some may think the combination to be unconventional, I am drawn to the intersection of art, technology and information. I'm particularly interested in how digital tools and computational approaches can make art and curatorial collections more accessible, organized, and engaging.</p>
+        <p>Through my studies and my work, I have explored this intersection through museum research and publishing, collections and donor data management, and programming projects focused on problem-solving and information gathering.</p>
       </div>
     </div>
     <figure class="wide">
@@ -161,7 +163,7 @@
 
   <section id="contact" class="reveal">
     <h2>Contact</h2>
-    <p>The best way to reach me is <a href="mailto:rjs9405@nyu.edu">rjs9405@nyu.edu</a>. You can also find me on <a href="https://www.linkedin.com/in/riley-schmidt-4885742a2">LinkedIn</a> and <a href="https://github.com/ri13yjs">GitHub</a>, or download my <a href="SchmidtR_Resume_2026 (1).pdf"> résumé</a>.</p>
+    <p>The best way to reach me is <a href="mailto:rjs9405@nyu.edu">rjs9405@nyu.edu</a>. You can also find me on <a href="https://www.linkedin.com/in/riley-schmidt-4885742a2">LinkedIn</a> and <a href="https://github.com/ri13yjs">GitHub</a>, or download my <a href="SchmidtR_Resume_2026%20(1).pdf">résumé</a>.</p>
   </section>
 </main>
 <footer>&copy; 2026 Riley Schmidt</footer>
